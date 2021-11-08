@@ -27,14 +27,14 @@ func ValidateDirectory(dir string) (string, error) {
 	}
 	info, err := os.Stat(dirPath)
 	if os.IsNotExist(err) {
-		return "", errors.Wrapf(err, "Directory does not exist: %v\n", dirPath)
+		return "", errors.Wrapf(err, "Directory does not exist: %v", dirPath)
 	}
 	if err != nil {
-		return "", errors.Wrapf(err, "Directory error: %v\n", dirPath)
+		return "", errors.Wrapf(err, "Directory error: %v", dirPath)
 
 	}
 	if !info.IsDir() {
-		return "", errors.Errorf("Directory is a file, not a directory: %#v\n", dirPath)
+		return "", errors.Errorf("Directory is a file, not a directory: %#v", dirPath)
 	}
 	return dirPath, nil
 }
